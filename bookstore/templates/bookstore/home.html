@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaperTrails - All Books</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #1e3a8a;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #10b981, #3b82f6);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #93c5fd;
+        }
+
+        .cart-icon {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+            margin: 2rem 0;
+            border-radius: 1px;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .book-card {
+            background-color: #2d2d2d;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            background: linear-gradient(45deg, #1e40af, #7c3aed);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .book-cover.pride-prejudice {
+            background: linear-gradient(135deg, #0ea5e9, #f59e0b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .book-cover.harry-potter {
+            background: linear-gradient(135deg, #7c2d12, #1e293b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .book-cover.great-gatsby {
+            background: linear-gradient(135deg, #fbbf24, #ef4444, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .book-cover.mockingbird {
+            background: linear-gradient(135deg, #7c2d12, #16a34a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .book-cover.nineteen-eighty-four {
+            background: linear-gradient(135deg, #dc2626, #1f2937);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .book-cover.alchemist {
+            background: linear-gradient(135deg, #f97316, #fbbf24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .book-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            pointer-events: none;
+        }
+
+        .book-cover .cover-text {
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .book-cover::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .book-cover.pride-prejudice::after {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+        }
+
+        .book-cover.harry-potter::after {
+            background: linear-gradient(45deg, #fbbf24, #d97706);
+        }
+
+        .book-cover.great-gatsby::after {
+            background: linear-gradient(45deg, #fbbf24, #ef4444);
+        }
+
+        .book-cover.mockingbird::after {
+            background: linear-gradient(45deg, #16a34a, #059669);
+        }
+
+        .book-cover.nineteen-eighty-four::after {
+            background: linear-gradient(45deg, #dc2626, #b91c1c);
+        }
+
+        .book-cover.alchemist::after {
+            background: linear-gradient(45deg, #f97316, #ea580c);
+        }
+
+        .book-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .book-author {
+            color: #9ca3af;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .book-description {
+            color: #9ca3af;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .book-price {
+            color: #9ca3af;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-publisher {
+            color: #6b7280;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .view-details-btn {
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .view-details-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-icon {
+            width: 16px;
+            height: 16px;
+            background-color: #60a5fa;
+            border-radius: 50%;
+        }
+
+        .footer {
+            background-color: #1e3a8a;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">PT</div>
+            PaperTrails
+        </div>
+        <nav class="nav-links">
+            <a href="{% url 'bookstore:home' %}">Home</a>
+            <a href="#" class="cart-icon">
+                🛒 Cart
+            </a>
+            <a href="{% url 'bookstore:login' %}">Login</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">Our Books</h1>
+        <div class="divider"></div>
+
+        <div class="books-grid">
+            <!-- Book 1: Pride and Prejudice -->
+            <div class="book-card">
+                <div class="book-cover pride-prejudice">
+                    <div class="cover-text">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">P&P</div>
+                        <div style="font-size: 0.8rem; opacity: 0.9;">PRIDE & PREJUDICE</div>
+                    </div>
+                </div>
+                <h3 class="book-title">Pride and Prejudice</h3>
+                <p class="book-author">by Jane Austen</p>
+                <p class="book-description">A beloved romantic novel that critiques societal norms and highlights the tension between love and class.</p>
+                <p class="book-price">$15.00</p>
+                <p class="book-publisher">Published by: T. Egerton</p>
+                <button class="view-details-btn">
+                    <div class="btn-icon"></div>
+                    View Details
+                </button>
+            </div>
+
+            <!-- Book 2: Harry Potter and the Philosopher's Stone -->
+            <div class="book-card">
+                <div class="book-cover harry-potter">
+                    <div class="cover-text">
+                        <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">HP</div>
+                        <div style="font-size: 0.7rem; opacity: 0.9;">HARRY POTTER</div>
+                        <div style="font-size: 0.6rem; opacity: 0.8;">PHILOSOPHER'S STONE</div>
+                    </div>
+                </div>
+                <h3 class="book-title">Harry Potter and the Philosopher's Stone</h3>
+                <p class="book-author">by J.K. Rowling</p>
+                <p class="book-description">The magical beginning of the Harry Potter series, where an orphan discovers he's a wizard destined for greatness.</p>
+                <p class="book-price">$35.00</p>
+                <p class="book-publisher">Published by: Bloomsbury</p>
+                <button class="view-details-btn">
+                    <div class="btn-icon"></div>
+                    View Details
+                </button>
+            </div>
+
+            <!-- Book 3: The Great Gatsby -->
+            <div class="book-card">
+                <div class="book-cover great-gatsby">
+                    <div class="cover-text">
+                        <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">GG</div>
+                        <div style="font-size: 0.8rem; opacity: 0.9;">THE GREAT GATSBY</div>
+                    </div>
+                </div>
+                <h3 class="book-title">The Great Gatsby</h3>
+                <p class="book-author">by F. Scott Fitzgerald</p>
+                <p class="book-description">A haunting portrait of the Roaring Twenties and the illusion of the American Dream through the eyes of Nick Carraway.</p>
+                <p class="book-price">$25.00</p>
+                <p class="book-publisher">Published by: Charles Scribner's Sons</p>
+                <button class="view-details-btn">
+                    <div class="btn-icon"></div>
+                    View Details
+                </button>
+            </div>
+
+            <!-- Book 4: To Kill a Mockingbird -->
+            <div class="book-card">
+                <div class="book-cover mockingbird">
+                    <div class="cover-text">
+                        <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">TKAM</div>
+                        <div style="font-size: 0.7rem; opacity: 0.9;">TO KILL A</div>
+                        <div style="font-size: 0.7rem; opacity: 0.9;">MOCKINGBIRD</div>
+                    </div>
+                </div>
+                <h3 class="book-title">To Kill a Mockingbird</h3>
+                <p class="book-author">by Harper Lee</p>
+                <p class="book-description">A powerful story of racial injustice and the loss of innocence in the American South.</p>
+                <p class="book-price">$18.00</p>
+                <p class="book-publisher">Published by: J. B. Lippincott & Co.</p>
+                <button class="view-details-btn">
+                    <div class="btn-icon"></div>
+                    View Details
+                </button>
+            </div>
+
+            <!-- Book 5: 1984 -->
+            <div class="book-card">
+                <div class="book-cover nineteen-eighty-four">
+                    <div class="cover-text">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">1984</div>
+                        <div style="font-size: 0.8rem; opacity: 0.9;">GEORGE ORWELL</div>
+                    </div>
+                </div>
+                <h3 class="book-title">1984</h3>
+                <p class="book-author">by George Orwell</p>
+                <p class="book-description">A dystopian masterpiece that explores totalitarianism, surveillance, and the manipulation of truth.</p>
+                <p class="book-price">$20.00</p>
+                <p class="book-publisher">Published by: Secker & Warburg</p>
+                <button class="view-details-btn">
+                    <div class="btn-icon"></div>
+                    View Details
+                </button>
+            </div>
+
+            <!-- Book 6: The Alchemist -->
+            <div class="book-card">
+                <div class="book-cover alchemist">
+                    <div class="cover-text">
+                        <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">TA</div>
+                        <div style="font-size: 0.8rem; opacity: 0.9;">THE ALCHEMIST</div>
+                    </div>
+                </div>
+                <h3 class="book-title">The Alchemist</h3>
+                <p class="book-author">by Paulo Coelho</p>
+                <p class="book-description">A fable about following your dreams and listening to your heart, set in the mystical world of alchemy.</p>
+                <p class="book-price">$22.00</p>
+                <p class="book-publisher">Published by: HarperCollins</p>
+                <button class="view-details-btn">
+                    <div class="btn-icon"></div>
+                    View Details
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© PaperTrails. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
