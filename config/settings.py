@@ -76,12 +76,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'bookstore_db',   # your MongoDB database name
+        'NAME': 'bookstore',  # Choose a name for your database
+        'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': 'mongodb+srv://nipuni:12345678987654321@clusterbookstore.caqunza.mongodb.net/?retryWrites=true&w=majority&appName=Clusterbookstore',
-            'port': 27017,
-            # 'username': 'your_username',   # optional if auth enabled
-            # 'password': 'your_password',   # optional
+            'host': 'mongodb+srv://nipuni:12345678987654321@clusterbookstore.caqunza.mongodb.net/?retryWrites=true&w=majority&appName=Clusterbookstore'
         }
     }
 }
