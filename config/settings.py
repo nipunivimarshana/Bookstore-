@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookstore',  # Your app should be listed here
+    'rest_framework',#for API development
+    'bookstore', #Djago app for bookstore
 ]
 
 MIDDLEWARE = [
