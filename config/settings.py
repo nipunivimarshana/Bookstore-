@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookstore'# Custom app for the bookstore
+    'rest_framework',#for API development
+    'bookstore', #Djago app for bookstore
 ]
 
 MIDDLEWARE = [
@@ -75,8 +76,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'bookstore_db',   # your MongoDB database name
+        'CLIENT': {
+            'host': 'mongodb+srv://nipuni:12345678987654321@clusterbookstore.caqunza.mongodb.net/?retryWrites=true&w=majority&appName=Clusterbookstore',
+            'port': 27017,
+            # 'username': 'your_username',   # optional if auth enabled
+            # 'password': 'your_password',   # optional
+        }
     }
 }
 
