@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookstore',  # Your app should be listed here
+    'rest_framework',#for API development
+    'bookstore', #Djago app for bookstore
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Middleware for handling CORS
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -125,3 +127,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Add this at the very bottom of settings.py
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # For React
+    "http://localhost:5173",  # For Vite (a popular tool for React/Vue)
+    "http://localhost:8080",  # For Vue
+    "http://localhost:4200",  # For Angular
+]
+
