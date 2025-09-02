@@ -1,16 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HomePage from "./pages/HomePage";
 import StorePage from "./pages/StorePage";
 import BookDetailPage from "./pages/BookDetailPage";
 import "./App.css";
-
-// Home page component
-const HomePage = () => (
-  <main className="main-content">
-    <h1>Welcome to the Bookstore</h1>
-  </main>
-);
 
 // Contact page component
 const ContactPage = () => (
