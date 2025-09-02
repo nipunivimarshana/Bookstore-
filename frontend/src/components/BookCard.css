@@ -1,3 +1,11 @@
+.book-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
 .book-card {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -5,8 +13,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   background-color: white;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  max-width: 250px;
-  margin: 0 auto;
+  height: 100%;
 }
 
 .book-card:hover {

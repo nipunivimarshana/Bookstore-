@@ -1,7 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import StorePage from "./pages/StorePage";
+import BookDetailPage from "./pages/BookDetailPage";
 import "./App.css";
 
 // Home page component
@@ -21,17 +22,16 @@ const ContactPage = () => (
 
 function App() {
   return (
-    <Router>
-      <div className="app">
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/store" element={<StorePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <div className="app">
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/store" element={<StorePage />} />
+        <Route path="/book/:id" element={<BookDetailPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+      <Footer />
+    </div>
   );
 }
 
