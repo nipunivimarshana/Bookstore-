@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import './BookCard.css';
 
 const BookCard = ({ book }) => {
+  const { addToCart } = useCart();
+
   // Format price as Rs. 1,990.00
   const formatPrice = (price) => {
     return `Rs. ${parseFloat(price).toLocaleString('en-IN', {
@@ -13,8 +16,8 @@ const BookCard = ({ book }) => {
   const handleAddToCart = (e) => {
     e.preventDefault(); // Prevent navigation when clicking the button
     e.stopPropagation();
-    // TODO: Implement add to cart functionality
-    console.log('Add to cart:', book.id);
+    // console.log('Adding book to cart:', book);
+    addToCart(book);
   };
 
   // Handle different image field names and construct full URL
