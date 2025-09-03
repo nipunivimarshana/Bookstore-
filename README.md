@@ -5,6 +5,7 @@ A modern, full-stack e-commerce platform for book sales built with Django REST F
 ## 🌟 Features
 
 ### 🛒 Shopping Experience
+
 - **Book Catalog**: Browse through a comprehensive collection of books
 - **Shopping Cart**: Add/remove items, update quantities, view totals
 - **Book Details**: Detailed book information with images, descriptions, and specifications
@@ -12,6 +13,7 @@ A modern, full-stack e-commerce platform for book sales built with Django REST F
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 
 ### 🎨 User Interface
+
 - **Modern Design**: Clean, intuitive interface with dark theme support
 - **Interactive Components**: Smooth animations and hover effects
 - **Shopping Cart Icon**: Real-time cart count with badge notifications
@@ -19,6 +21,7 @@ A modern, full-stack e-commerce platform for book sales built with Django REST F
 - **Error Handling**: User-friendly error messages and loading states
 
 ### 🔧 Technical Features
+
 - **RESTful API**: Django REST Framework backend
 - **State Management**: React Context for global cart state
 - **Routing**: React Router for seamless navigation
@@ -28,6 +31,7 @@ A modern, full-stack e-commerce platform for book sales built with Django REST F
 ## 🏗️ Architecture
 
 ### Backend (Django)
+
 ```
 Bookstore-/
 ├── config/                 # Django project settings
@@ -43,6 +47,7 @@ Bookstore-/
 ```
 
 ### Frontend (React)
+
 ```
 frontend/
 ├── src/
@@ -58,6 +63,7 @@ frontend/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Python 3.8+
 - Node.js 16+
 - npm or yarn
@@ -65,38 +71,44 @@ frontend/
 ### Backend Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd Bookstore-
    ```
 
 2. **Create and activate virtual environment**
+
    ```bash
    python -m venv venv
-   
+
    # Windows
    venv\Scripts\activate
-   
+
    # macOS/Linux
    source venv/bin/activate
    ```
 
 3. **Install dependencies**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Run database migrations**
+
    ```bash
    python manage.py migrate
    ```
 
 5. **Create superuser (optional)**
+
    ```bash
    python manage.py createsuperuser
    ```
 
 6. **Seed sample data (optional)**
+
    ```bash
    python manage.py seed_data
    ```
@@ -110,11 +122,13 @@ frontend/
 ### Frontend Setup
 
 1. **Navigate to frontend directory**
+
    ```bash
    cd frontend
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
@@ -128,11 +142,13 @@ frontend/
 ## 📖 User Guide
 
 ### 🏠 Homepage
+
 - **Hero Section**: Welcome message and featured content
 - **Featured Books**: Highlighted book recommendations
 - **Navigation**: Access to all sections via header menu
 
 ### 🛍️ Store
+
 - **Book Grid**: Browse all available books
 - **Book Cards**: Each card shows:
   - Book cover image
@@ -144,6 +160,7 @@ frontend/
 - **Book Details**: Click on any book to view detailed information
 
 ### 🛒 Shopping Cart
+
 - **Add Items**: Click "ADD TO CART" on any book
 - **View Cart**: Click the cart icon in the header
 - **Cart Features**:
@@ -156,6 +173,7 @@ frontend/
 - **Continue Shopping**: Return to store to add more items
 
 ### 📱 Responsive Design
+
 - **Desktop**: Full-featured experience with sidebar navigation
 - **Tablet**: Optimized layout with touch-friendly controls
 - **Mobile**: Streamlined interface with collapsible navigation
@@ -165,6 +183,7 @@ frontend/
 ### Endpoints
 
 #### Books
+
 - `GET /api/books/` - List all books
 - `GET /api/books/{id}/` - Get book details
 - `POST /api/books/` - Create new book (admin only)
@@ -172,12 +191,14 @@ frontend/
 - `DELETE /api/books/{id}/` - Delete book (admin only)
 
 #### Authors
+
 - `GET /api/authors/` - List all authors
 - `GET /api/authors/{id}/` - Get author details
 
 ### Data Models
 
 #### Book
+
 ```json
 {
   "id": 1,
@@ -217,6 +238,7 @@ frontend/
 4. **Styling**: Use CSS modules for component-specific styles
 
 ### Code Style
+
 - **Python**: Follow PEP 8 guidelines
 - **JavaScript/TypeScript**: Use ESLint configuration
 - **CSS**: Use consistent naming conventions
@@ -224,11 +246,13 @@ frontend/
 ## 🧪 Testing
 
 ### Backend Testing
+
 ```bash
 python manage.py test
 ```
 
 ### Frontend Testing
+
 ```bash
 cd frontend
 npm run lint
@@ -238,6 +262,7 @@ npm run build
 ## 📦 Deployment
 
 ### Backend Deployment
+
 1. Set up production database (PostgreSQL recommended)
 2. Configure environment variables
 3. Run migrations
@@ -245,6 +270,7 @@ npm run build
 5. Deploy with Gunicorn or similar WSGI server
 
 ### Frontend Deployment
+
 1. Build production bundle
    ```bash
    npm run build
@@ -275,18 +301,21 @@ If you encounter any issues or have questions:
 ## 🎯 Roadmap
 
 ### Version 1.1
+
 - [ ] User authentication and profiles
 - [ ] Order management system
 - [ ] Payment integration
 - [ ] Email notifications
 
 ### Version 1.2
+
 - [ ] Advanced search and filtering
 - [ ] Book reviews and ratings
 - [ ] Wishlist functionality
 - [ ] Admin dashboard
 
 ### Version 2.0
+
 - [ ] Mobile app (React Native)
 - [ ] Real-time chat support
 - [ ] Advanced analytics
