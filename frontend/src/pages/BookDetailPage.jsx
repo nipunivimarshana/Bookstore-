@@ -97,7 +97,7 @@ const BookDetailPage = () => {
         <div className="book-detail-content">
           <div className="book-cover-section">
             <img 
-              src={book.cover_image || 'https://via.placeholder.com/400x600/cccccc/666666?text=No+Image'} 
+              src={book.image ? `http://127.0.0.1:8000${book.image}` : 'https://via.placeholder.com/400x600/cccccc/666666?text=No+Image'} 
               alt={`${book.title} cover`} 
               className="book-cover-image"
             />

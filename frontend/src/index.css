@@ -3,42 +3,41 @@
 
 /* Design System - CSS Variables */
 :root {
-  /* Color Palette */
-  /* Primary Colors - Dark Theme */
-  --color-primary-dark: #1a1a1a;
-  --color-primary-darker: #0f0f0f;
-  --color-primary-light: #2c2c2c;
+  /* Color Palette - New Design System */
+  /* Primary Colors */
+  --color-primary-dark: #000000;
+  --color-primary-light: #333333;
   
-  /* Secondary Colors */
-  --color-secondary-dark: #2c3e50;
-  --color-secondary-light: #34495e;
+  /* Secondary Colors - Navy Blue */
+  --color-secondary-dark: #1e3a8a;
+  --color-secondary-light: #3b82f6;
   
   /* Text Colors */
   --color-text-primary: #ffffff;
-  --color-text-secondary: #e8e8e8;
-  --color-text-muted: #b0b0b0;
-  --color-text-dark: #2c3e50;
+  --color-text-secondary: #f8f9fa;
+  --color-text-muted: #6b7280;
+  --color-text-dark: #000000;
   --color-text-light: #666666;
   
-  /* Accent Colors - Vibrant */
-  --color-accent-primary: #61dafb;
-  --color-accent-secondary: #4fa8c5;
-  --color-accent-success: #28a745;
-  --color-accent-warning: #ffc107;
-  --color-accent-danger: #dc3545;
-  --color-accent-info: #17a2b8;
+  /* Accent Colors - Orange */
+  --color-accent-primary: #ff6b35;
+  --color-accent-secondary: #e55a2b;
+  --color-accent-success: #10b981;
+  --color-accent-warning: #f59e0b;
+  --color-accent-danger: #ef4444;
+  --color-accent-info: #3b82f6;
   
   /* Background Colors */
-  --color-bg-primary: #1a1a1a;
-  --color-bg-secondary: #2c2c2c;
-  --color-bg-tertiary: #f8f9fa;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #f1f5f9;
   --color-bg-white: #ffffff;
   --color-bg-overlay: rgba(0, 0, 0, 0.6);
   
   /* Border Colors */
-  --color-border-primary: #e0e0e0;
-  --color-border-secondary: #d0d0d0;
-  --color-border-dark: #444444;
+  --color-border-primary: #e5e7eb;
+  --color-border-secondary: #d1d5db;
+  --color-border-dark: #374151;
   
   /* Shadow Colors */
   --color-shadow-light: rgba(0, 0, 0, 0.1);
@@ -127,7 +126,7 @@ body {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height-normal);
-  color: var(--color-text-primary);
+  color: var(--color-text-dark);
   background-color: var(--color-bg-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -140,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-tight);
   margin: 0 0 var(--spacing-md) 0;
-  color: var(--color-text-primary);
+  color: var(--color-text-dark);
 }
 
 h1 {
@@ -170,7 +169,7 @@ h6 {
 
 p {
   margin: 0 0 var(--spacing-md) 0;
-  color: var(--color-text-secondary);
+  color: var(--color-text-light);
 }
 
 /* Links */

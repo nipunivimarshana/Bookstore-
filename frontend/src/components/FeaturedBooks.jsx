@@ -72,7 +72,7 @@ const FeaturedBooks = () => {
               <div key={book.id} className="featured-book-card">
                 <div className="book-cover-container">
                   <img 
-                    src={book.cover_image || 'https://via.placeholder.com/300x400/cccccc/666666?text=No+Image'} 
+                    src={book.image ? `http://127.0.0.1:8000${book.image}` : 'https://via.placeholder.com/300x400/cccccc/666666?text=No+Image'} 
                     alt={`${book.title} cover`} 
                     className="book-cover-image"
                   />

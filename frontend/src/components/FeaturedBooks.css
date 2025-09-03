@@ -1,7 +1,7 @@
 /* FeaturedBooks Component Styles */
 .featured-books-section {
   padding: var(--spacing-4xl) var(--spacing-lg);
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-bg-white);
   margin: var(--spacing-3xl) 0;
 }
 
@@ -15,7 +15,7 @@
   font-family: var(--font-family-heading);
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-light);
-  color: var(--color-text-primary);
+  color: var(--color-text-dark);
   margin: 0 0 var(--spacing-3xl) 0;
   font-style: italic;
   text-align: center;
@@ -90,7 +90,7 @@
 
 .book-title {
   font-family: var(--font-family-heading);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-dark);
   margin: 0;
@@ -281,7 +281,7 @@
   }
   
   .book-title {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-xs);
   }
   
   .order-now-button {
@@ -309,7 +309,7 @@
   }
   
   .book-title {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
   }
   
   .order-now-button {
