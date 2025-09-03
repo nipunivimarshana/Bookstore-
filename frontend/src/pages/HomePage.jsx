@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Hero from '../components/Hero';
+import ComingSoon from '../components/ComingSoon';
 import BookCard from '../components/BookCard';
 import './HomePage.css';
 
@@ -60,6 +61,9 @@ const HomePage = () => {
     <div className="home-page">
       {/* Hero Section */}
       <Hero />
+
+      {/* Coming Soon Section */}
+      <ComingSoon />
 
       {/* Featured Books Section */}
       <div className="featured-books-section">
