@@ -1,7 +1,7 @@
 /* DiscoverMore Component Styles */
 .discover-more-section {
   padding: var(--spacing-4xl) var(--spacing-lg);
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-bg-white);
   margin: var(--spacing-3xl) 0;
 }
 
@@ -15,7 +15,7 @@
   font-family: var(--font-family-heading);
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-light);
-  color: var(--color-text-primary);
+  color: var(--color-text-dark);
   margin: 0 0 var(--spacing-3xl) 0;
   font-style: italic;
   text-align: center;
