@@ -6,14 +6,8 @@ import StorePage from "./pages/StorePage";
 import BookDetailPage from "./pages/BookDetailPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import ContactPage from "./pages/ContactPage";
 import "./App.css";
-
-const ContactPage = () => (
-  <main className="main-content">
-    <h1>Contact Us</h1>
-    <p>Get in touch with us!</p>
-  </main>
-);
 
 function App() {
   return (
