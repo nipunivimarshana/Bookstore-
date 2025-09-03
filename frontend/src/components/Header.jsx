@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useCart } from '../context/CartContext';
+import { FiShoppingCart } from 'react-icons/fi';
 import './Header.css';
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const { itemCount } = useCart();
+  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -69,6 +73,21 @@ const Header = () => {
                 <Link to="/register" className="nav-link">
                   Register
                 </Link>
+              </li>
+              <li className="nav-item cart-item">
+                <button 
+                  className="cart-link"
+                  onClick={() => {
+                    // console.log('Cart button clicked, itemCount:', itemCount);
+                    navigate('/cart');
+                  }}
+                  style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                >
+                  <FiShoppingCart className="cart-icon" />
+                  {itemCount > 0 && (
+                    <span className="cart-badge">{itemCount}</span>
+                  )}
+                </button>
               </li>
             </ul>
           </nav>
